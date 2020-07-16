@@ -6,9 +6,9 @@ import urllib3
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-print(colored('This is xmlrpc SSRF - XSPA checker', 'yellow'))
-print(colored('Software used for detect xmlrpc.php on target(1st argument) and send SSRF request to collaboratorhost(2nd argument)', 'yellow'))
-print(colored('Example: python xmlrpcfinder.py http://target.com collaboratorhost.com', 'yellow'))
+#print(colored('This is xmlrpc SSRF - XSPA checker', 'yellow'))
+#print(colored('Software used for detect xmlrpc.php on target(1st argument) and send SSRF request to collaboratorhost(2nd argument)', 'yellow'))
+#print(colored('Example: python xmlrpcfinder.py http://target.com collaboratorhost.com', 'yellow'))
 
 xml = """<?xml version="1.0" encoding="utf-8"?>
 <methodCall>
@@ -36,7 +36,7 @@ try:
 	r = requests.post(url, data=xml, headers=headers, verify=False)
 	if 'pingback.ping' in r.content:
 		print(colored("[+] - "+url+" - seems vulnerable!", 'green'))
-		print(colored("Let's do some evil now!", 'green'))
+		#print(colored("Let's do some evil now!", 'green'))
 		# r = requests.post(url, data=xml2, headers=headers, verify=False)
 		# print(r.content)
 	else:
